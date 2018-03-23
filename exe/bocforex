@@ -1,3 +1,6 @@
 #!/usr/bin/env ruby
-require File.expand_path('lib/boc_forex/cli.rb', Dir.pwd)
+
+require 'boc_forex'
+require 'boc_forex/cli'
+
 BocForex::CLI.start
