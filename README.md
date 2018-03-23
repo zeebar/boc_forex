@@ -1,7 +1,7 @@
 
 # BocForex
 
-This code provides access to recent foreign currency exchange data provided by the
+This Ruby gen provides access to recent foreign currency exchange data provided by the
 Bank Of Canada via it's public [Valet API](https://www.bankofcanada.ca/valet/docs).
 
 
@@ -26,19 +26,10 @@ its function may change, or it may go away entirely.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'boc_forex'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install boc_forex
+   gem build boc_forex.gemspec
+   gem install boc_forex-0.1.0.gem
+```
 
 ## Usage
 
@@ -48,10 +39,6 @@ Or install it yourself as:
     bocforex cad 2017-01-03
     bocforex cad 2017-01-03,2017-01-04,2017-01-05 aud,zar
 ```
-*CURRENCIES* a comma separated list of currency codes.
-
-*DATES* is a comma separated list of dates 
-
 
 ### API
 
