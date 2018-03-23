@@ -5,14 +5,13 @@ module BocForex
 
   class Fetcher
     
-    BOC_VALET_FOREX_GROUP = "FX_RATES_DAILY"
-
     @forex_by_year = []
-
 
     def self.forex_by_year( year )
 
       @forex_by_year[year] ||= begin
+         raise ArgumentError.new("BOC Valet API supplies forex data starting in #{BOC_VALET_FOREX_FIRST_YEAR}") if year < BOC_VALET_FOREX_FIRST_YEAR
+
          afx_by_date = {}
          parse_state = :waiting_for_obs
          currencies = []

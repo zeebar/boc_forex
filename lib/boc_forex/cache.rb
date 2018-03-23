@@ -3,9 +3,6 @@ require 'pathname'
 
 module BocForex
 
-  BOC_VALET_BASE_URI = "https://www.bankofcanada.ca/valet"
-  BOC_VALET_GROUP_OBS_PATH = "observations/group"
-
   class Cache
 
     def self.home_dir 
@@ -29,12 +26,18 @@ module BocForex
       end
     end
 
+
+    def self.obs_group_year_url( group_name, year )
+      "#{BOC_VALET_BASE_URI}/#{BOC_VALET_GROUP_OBS_PATH}/#{group_name}/csv?start_date=#{year}-01-01&end_date=#{year}-12-31"
+    end
+
+
     def self.load_or_fetch_year_group_obs( group_name, year )
       cache_file = cache_dir + ("#{group_name}_#{year}.csv")
       if cache_file.exist?
         cache_file.read
       else
-        uri = "#{BOC_VALET_BASE_URI}/#{BOC_VALET_GROUP_OBS_PATH}/#{group_name}/csv?start_date=#{year}-01-01&end_date=#{year}-12-31"
+        uri = self.obs_group_year_url( group_name, year )
         data = begin 
           open( uri ).read
         rescue OpenURI::HTTPError => he
