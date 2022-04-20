@@ -28,7 +28,7 @@ its function may change, or it may go away entirely.
 
 ```
    gem build boc_forex.gemspec
-   gem install boc_forex-0.1.0.gem
+   gem install boc_forex-0.1.1.gem
 ```
 
 ## Usage

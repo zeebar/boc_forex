@@ -39,7 +39,7 @@ module BocForex
       else
         uri = self.obs_group_year_url( group_name, year )
         data = begin 
-          open( uri ).read
+          URI.open( uri ).read
         rescue OpenURI::HTTPError => he
           raise "could not fetch #{uri}: #{he.message}"
         end
